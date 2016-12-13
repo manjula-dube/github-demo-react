@@ -24572,9 +24572,9 @@
 
 		getInitialState: function getInitialState() {
 			return {
-				notes: [],
+				notes: [1, 2, 3, 4],
 				bio: { name: "Manjula" },
-				repos: []
+				repos: ["react", "nodejs"]
 			};
 		},
 
@@ -24631,7 +24631,7 @@
 					'p',
 					null,
 					' ',
-					this.props.username
+					this.props.repos
 				)
 			);
 		}
@@ -24694,7 +24694,9 @@
 			return React.createElement(
 				'div',
 				null,
-				' Notes '
+				' ',
+				this.props.notes,
+				' '
 			);
 		}
 	});

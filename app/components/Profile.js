@@ -3,16 +3,20 @@ var ReactDom = require('react-dom');
 var Repos = require('./github/Repos');
 var UserProfile = require('./github/UserProfile');
 var Notes = require('./Notes/Notes');
+var ReactFireMixin = require('reactfire');
 
 var Profile = React.createClass({
-	 getInitialState:function(){
+	mixins : [ReactFireMixin],
+	getInitialState:function(){
 	 	return{
-	 		notes:[],
+	 		notes:[1,2,3,4],
 	 		bio:{name:"Manjula"},
-	 		repos:[]
+	 		repos:["react","nodejs"]
 	 	}
 	 },
-
+	componentDidMount:function(){
+		this.ref = new Firebase('https://github-note-taker.firebaseio.com/');
+	},
 	render:function(){
 		console.log(this.props);
 		return(
